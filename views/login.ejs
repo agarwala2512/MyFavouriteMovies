@@ -1,0 +1,39 @@
+<%- include('layout/header') %>
+  
+<div class = "container">
+  <div class = "row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <div class="card shadow">
+        <div class="card-header bg-primary">
+          <h3 class="text-light">LogIn</h3>
+        </div>
+        <div class="card-body p-4">
+          <div>
+            <%- include("./partials/messages") %>
+          </div>
+ 
+          <form action="/login" method="post" id="add-form">
+            <div class="nb-3">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter Email" required>
+            </div>
+            <div class="nb-3">
+              <label for="password">Password</label>
+              <input type="password" name="password" class="form-control form-control-lg" placeholder="Enter Password" required>
+            </div>
+            <div class="nb-3 d-grid">
+              <input type="submit" name="submit" value="LogIn" class="btn btn-primary tbn-lg" style="margin-top: 10px" />
+            </div>
+            <div class="nb-3 d-grid">
+              <a href="/register" class="btn btn-primary tbn-lg" style="margin-top: 10px" >
+                  Not Already Registered?
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+<%- include('layout/footer') %>

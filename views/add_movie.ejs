@@ -1,0 +1,62 @@
+<%- include('layout/header') %>
+
+<nav class="navbar navbar-inverse navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MyFavouriteMovies</a>
+      <ul class="nav navbar-nav">
+          <li class="active text-light">User : <%= name %></li>
+      </ul>
+    </div>
+    <!-- <button class="btn btn-outline-success" type="button"><a href="/movies/add">Add Movie</a></button> -->
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-user"></span>LogOut</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class = "container">
+
+  <div class = "row">
+    <div class="col-lg-6 mx-auto mt-4">
+      <div class="card shadow">
+        <div class="card-header bg-primary">
+          <h3 class="text-light">
+            <%= title %>
+          </h3>
+        </div>
+
+        <div class="card-body p-4">
+          <form action="<%= postUrl %>" method="post" id="add-form">
+            <div class="nb-3">
+              <label for="name">Movie Name</label>
+              <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Name" value="<%= movie?.name %>" required>
+            </div>
+            <div class="nb-3">
+              <label for="rating">Rating</label>
+              <input type="number" step="0.1" name="rating" class="form-control form-control-lg" placeholder="Enter Rating" value="<%= movie?.rating %>" required>
+            </div>
+            <div class="nb-3">
+              <label for="cast">Cast</label>
+              <input type="text" name="movie_cast" class="form-control form-control-lg" placeholder="Enter Casts" value="<%= movie?.movie_cast %>" required>
+            </div>
+            <div class="nb-3">
+              <label for="genre">Genre</label>
+              <input type="text" name="genre" class="form-control form-control-lg" placeholder="Enter Genre" value="<%= movie?.genre %>" required>
+            </div>
+            <div class="nb-3">
+              <label for="date">Release Date</label>
+              <input type="date" name="release_date" class="form-control form-control-lg" placeholder="Enter release date" value ="<%= movie?.release_date?.toISOString()?.substr(0, 10) %>" required>
+            </div>
+            <div class="nb-3 d-grid">
+              <input type="submit" name="submit" value="<%= title %>" class="btn btn-primary tbn-lg" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layout/footer') %>

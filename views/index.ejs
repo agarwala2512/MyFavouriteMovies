@@ -1,0 +1,75 @@
+<%- include('layout/header') %>
+
+
+<nav class="navbar navbar-inverse navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">MyFavouriteMovies</a>
+        <ul class="nav navbar-nav">
+            <li class="active text-light">User : <%= name %></li>
+        </ul>
+      </div>
+      <ul class="nav navbar-nav justify-content-between">
+        <li class="active"><a href="/movies/add" class="btn bg-light">Add Movie</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"  style="color: white"><span class="glyphicon glyphicon-user"></span>LogOut</a></li>
+      </ul>
+    </div>
+</nav>
+<div>
+  <%- include("./partials/messages") %>
+</div>
+
+<div class = "container">
+    <div class = "row my-4">
+        <div class = "col-lg-12">
+            <div class = "table-responsive" style="overflow:visible">
+                <table class = "table table-striped text-center">
+                    <thead>
+                        <tr class = "table-dark">
+                            <th>Movie Name</th>
+                            <th>Rating</th>
+                            <th>Cast</th>
+                            <th>Genre</th>
+                            <th>Release Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <% for(var i = 0; i < movies.length; i++) { %> 
+                                <tr>
+                                    <td><%= movies[i].name %></td>
+                                    <td><%= movies[i].rating %></td>
+                                    <td>
+                                        <div class="dropdown" >
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Cast List
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height:300px;overflow-y:scroll">
+                                              <% for(var j = 0; j < movies[i].movie_cast?.length; j++) { %> 
+                                                <a class="dropdown-item" href="#"><%= movies[i].movie_cast[j] %></a>
+                                              <% } %>
+                                            </div>
+                                          </div>
+                                    </td>
+                                    <td><%= movies[i].genre %></td>
+                                    <td><%= movies[i].release_date %></td>
+                                    <td>
+                                        <a href = "/movies/edit/<%=movies[i].id%>"  class="text-success" style="display: inline"><i class = "fas fa-edit fa-lg mx-1"></i></a>
+                                        <form action="/movies/delete/<%=movies[i].id%>?_method=delete" method="POST" style="display: inline">
+                                            <button type="submit" class="text-danger" style="border:none">
+                                                 <i class = "fas fa-trash fa-lg mx-1"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %>

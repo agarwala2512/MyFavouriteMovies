@@ -1,0 +1,23 @@
+<% if(success_msg !='' ){ %>
+  <div id="hiding1" style="color:green;background-color:rgba(0, 128, 0, 0.11);padding:0.5rem;border-radius:10px;"
+    role="alert">
+    <%= success_msg %>
+      <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+  </div>
+  <% } %>
+
+    <% if(error_msg !='' ){ %>
+      <div id="hiding2" role="alert"
+        style="color:red;background-color:rgba(255, 0, 0, 0.11);padding:0.5rem;border-radius:10px;">
+        <%= error_msg %>
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+      </div>
+      <% } %>
+
+        <script>window.setTimeout("document.getElementById('hiding1').style.display='none';", 2000);
+          window.setTimeout("document.getElementById('hiding2').style.display='none';", 2000);
+        </script>
