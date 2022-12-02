@@ -18,18 +18,7 @@ const userAuth = async (req, res, next) => {
         req.app_user = app_user.rows[0]
         next()
     } catch (error) {
-        
-        // req.flash(
-        //     'error_msg',
-        //     'Invalid token! Authenticate to proceed furthur'
-        // );
-        // res.redirect('/user/login')
-        console.log(error)
-            
-        // res.status(500).json({
-        //     success : 0,
-        //     msg : 'Some Error Occured! Please Register Again!'
-        // })  
+        console.log(error) 
         res.redirect("/login")
     }
 }
