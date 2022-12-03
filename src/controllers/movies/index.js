@@ -132,7 +132,7 @@ const movieController = {
             console.log(  "delete movie" )
 
             const movie = await pool.query(
-                "DELETE FROM movie WHERE id = $1 AND app_user_id = $2",
+                "DELETE FROM movie WHERE id = $1 AND app_user_id = $2 RETURNING *",
                 [ req.params._id , req.app_user.id ]
             )
 
