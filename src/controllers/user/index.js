@@ -40,7 +40,7 @@ const userController = {
         res.render("register")
     },
      
-    // 2) logInUser
+    // 4) logInUser
     loginUser: async (req, res) => {
         
         try {
@@ -85,7 +85,7 @@ const userController = {
         }
     },
 
-    // 3) RegisterUser
+    // 5) RegisterUser
     registerUser: async (req, res) => {
 
         try {
@@ -129,7 +129,7 @@ const userController = {
         }        
     },
 
-    // 4) LogoutUser
+    // 6) LogoutUser
     logOutUser: async (req, res) => {
 
         try {
